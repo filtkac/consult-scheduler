@@ -1,0 +1,64 @@
+### Create a department
+POST http://localhost:8080/departments
+Content-Type: application/json
+
+{
+  "name": "Mamocentrum 2"
+}
+
+### Get departments
+GET http://localhost:8080/departments
+
+### Delete department
+DELETE http://localhost:8080/departments/1
+
+### Create a consult type
+POST http://localhost:8080/consult-types
+Content-Type: application/json
+
+{
+  "consultType": "Mamografie",
+  "durationMinutes": 15
+}
+
+### Get consult types
+GET http://localhost:8080/consult-types
+
+### Delete consult type
+DELETE http://localhost:8080/consult-types/1
+
+### Get all day templates
+GET http://localhost:8080/day-templates
+
+### Get day templates for specific department
+GET http://localhost:8080/day-templates?department-id=2
+
+### Create a day template
+POST http://localhost:8080/day-templates
+Content-Type: application/json
+
+{
+  "name": "Pondelok 2",
+  "departmentId": 3
+}
+
+### Get day template consults
+GET http://localhost:8080/day-templates/2/consults
+
+### Create day template consults
+POST http://localhost:8080/day-templates/2/consults
+Content-Type: application/json
+
+[
+  {
+    "consultTypeId": 3,
+    "dayTemplateId": 2,
+    "time": "9:00",
+    "note": "Nerezervovat"
+  },
+  {
+    "consultTypeId": 3,
+    "dayTemplateId": 2,
+    "time": "10:00"
+  }
+]
