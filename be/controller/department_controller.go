@@ -25,7 +25,7 @@ func (c DepartmentController) GetAllDepartments(ctx *gin.Context) {
 }
 
 func (c DepartmentController) DeleteDepartment(ctx *gin.Context) {
-	id, err := GetIDPathParamOrAbort(ctx)
+	id, err := GetIDPathParamOrAbort(ctx, "departmentId")
 	if err != nil {
 		return
 	}

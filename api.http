@@ -9,7 +9,7 @@ Content-Type: application/json
 ### Get departments
 GET http://localhost:8080/departments
 
-### Delete department
+### Delete a department
 DELETE http://localhost:8080/departments/1
 
 ### Create a consult type
@@ -24,7 +24,7 @@ Content-Type: application/json
 ### Get consult types
 GET http://localhost:8080/consult-types
 
-### Delete consult type
+### Delete a consult type
 DELETE http://localhost:8080/consult-types/1
 
 ### Get all day templates
@@ -62,3 +62,27 @@ Content-Type: application/json
     "time": "10:00"
   }
 ]
+
+### Create a consult
+POST http://localhost:8080/departments/2/consults
+Content-Type: application/json
+
+{
+  "departmentId": 2,
+  "time": "2025-07-28T8:00"
+}
+
+### Get consults for day
+GET http://localhost:8080/departments/2/consults?day=2025-07-28
+
+### Delete a consult
+DELETE http://localhost:8080/departments/2/consults/4
+
+### Update a consult
+POST http://localhost:8080/departments/2/consults/1
+Content-Type: application/json
+
+{
+  "departmentId": 2,
+  "time": "2025-07-28T11:00"
+}

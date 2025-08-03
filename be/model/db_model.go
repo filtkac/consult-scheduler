@@ -1,5 +1,7 @@
 package model
 
+import "time"
+
 type Model struct {
 	ID uint `gorm:"primarykey"`
 }
@@ -35,7 +37,19 @@ type DayTemplateConsult struct {
 type Patient struct {
 	Model
 	UniqueID string `gorm:"unique;not null"`
-	Name     string
-	Email    string
-	Phone    string
+	Name     string `gorm:"not null"`
+	Email    *string
+	Phone    *string
+}
+
+type Consult struct {
+	Model
+	DepartmentID  uint `gorm:"not null"`
+	Department    Department
+	ConsultTypeID *uint
+	ConsultType   ConsultType
+	Time          time.Time `gorm:"type:timestamp;not null"`
+	Note          *string
+	PatientID     *uint
+	Patient       Patient
 }

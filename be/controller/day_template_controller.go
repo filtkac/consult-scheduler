@@ -43,7 +43,7 @@ func (c DayTemplateController) GetDayTemplates(ctx *gin.Context) {
 }
 
 func (c DayTemplateController) DeleteDayTemplate(ctx *gin.Context) {
-	id, err := GetIDPathParamOrAbort(ctx)
+	id, err := GetIDPathParamOrAbort(ctx, "dayTemplateId")
 	if err != nil {
 		return
 	}
@@ -70,7 +70,7 @@ func (c DayTemplateController) CreateDayTemplate(ctx *gin.Context) {
 }
 
 func (c DayTemplateController) GetConsultsForDayTemplate(ctx *gin.Context) {
-	dayTemplateID, err := GetIDPathParamOrAbort(ctx)
+	dayTemplateID, err := GetIDPathParamOrAbort(ctx, "dayTemplateId")
 	if err != nil {
 		return
 	}
@@ -83,7 +83,7 @@ func (c DayTemplateController) GetConsultsForDayTemplate(ctx *gin.Context) {
 }
 
 func (c DayTemplateController) CreateConsultsForDayTemplate(ctx *gin.Context) {
-	dayTemplateID, err := GetIDPathParamOrAbort(ctx)
+	dayTemplateID, err := GetIDPathParamOrAbort(ctx, "dayTemplateId")
 	if err != nil {
 		return
 	}

@@ -54,7 +54,7 @@ func (timeOnly *TimeOnly) UnmarshalJSON(bs []byte) error {
 	if err != nil {
 		return err
 	}
-	t, err := time.ParseInLocation("15:04", s, time.UTC)
+	t, err := time.Parse("15:04", s)
 	if err != nil {
 		return err
 	}

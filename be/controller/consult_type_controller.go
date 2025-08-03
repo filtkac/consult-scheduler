@@ -25,7 +25,7 @@ func (c ConsultTypeController) GetAllConsultTypes(ctx *gin.Context) {
 }
 
 func (c ConsultTypeController) DeleteConsultType(ctx *gin.Context) {
-	id, err := GetIDPathParamOrAbort(ctx)
+	id, err := GetIDPathParamOrAbort(ctx, "consultTypeId")
 	if err != nil {
 		return
 	}

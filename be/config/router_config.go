@@ -21,22 +21,29 @@ func RouterConfig(db *gorm.DB) *gin.Engine {
 	consultTypeController := initConsultTypeController(db)
 	consultTypeRouter := router.Group("/consult-types")
 	consultTypeRouter.GET("", consultTypeController.GetAllConsultTypes)
-	consultTypeRouter.DELETE("/:id", consultTypeController.DeleteConsultType)
+	consultTypeRouter.DELETE("/:consultTypeId", consultTypeController.DeleteConsultType)
 	consultTypeRouter.POST("", consultTypeController.CreateConsultType)
 
 	departmentController := initDepartmentController(db)
 	departmentRouter := router.Group("/departments")
 	departmentRouter.GET("", departmentController.GetAllDepartments)
-	departmentRouter.DELETE("/:id", departmentController.DeleteDepartment)
+	departmentRouter.DELETE("/:departmentId", departmentController.DeleteDepartment)
 	departmentRouter.POST("", departmentController.CreateDepartment)
 
 	dayTemplateController := initDayTemplateController(db)
 	dayTemplateRouter := router.Group("/day-templates")
 	dayTemplateRouter.GET("", dayTemplateController.GetDayTemplates)
-	dayTemplateRouter.DELETE("/:id", dayTemplateController.DeleteDayTemplate)
+	dayTemplateRouter.DELETE("/:dayTemplateId", dayTemplateController.DeleteDayTemplate)
 	dayTemplateRouter.POST("", dayTemplateController.CreateDayTemplate)
-	dayTemplateRouter.GET(":id/consults", dayTemplateController.GetConsultsForDayTemplate)
-	dayTemplateRouter.POST(":id/consults", dayTemplateController.CreateConsultsForDayTemplate)
+	dayTemplateRouter.GET("/:dayTemplateId/consults", dayTemplateController.GetConsultsForDayTemplate)
+	dayTemplateRouter.POST("/:dayTemplateId/consults", dayTemplateController.CreateConsultsForDayTemplate)
+
+	consultController := initConsultController(db)
+	consultRouter := router.Group("/departments/:departmentId/consults")
+	consultRouter.GET("", consultController.GetDepartmentConsults)
+	consultRouter.POST("", consultController.CreateDepartmentConsult)
+	consultRouter.DELETE("/:consultId", consultController.DeleteDepartmentConsult)
+	consultRouter.POST("/:consultId", consultController.UpdateDepartmentConsult)
 
 	return router
 }
@@ -57,4 +64,10 @@ func initDayTemplateController(db *gorm.DB) *controller.DayTemplateController {
 	dayTemplateRepository := repository.NewDayTemplateRepository(db)
 	dayTemplateService := service.NewDayTemplateService(dayTemplateRepository)
 	return controller.NewDayTemplateController(dayTemplateService)
+}
+
+func initConsultController(db *gorm.DB) *controller.ConsultController {
+	consultRepository := repository.NewConsultRepository(db)
+	consultService := service.NewConsultService(consultRepository)
+	return controller.NewConsultController(consultService)
 }

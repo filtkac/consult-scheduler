@@ -7,8 +7,8 @@ import (
 	"strconv"
 )
 
-func GetIDPathParamOrAbort(ctx *gin.Context) (uint, error) {
-	idParam := ctx.Param("id")
+func GetIDPathParamOrAbort(ctx *gin.Context, param string) (uint, error) {
+	idParam := ctx.Param(param)
 	id, err := strconv.ParseUint(idParam, 10, 64)
 	if err != nil {
 		ctx.AbortWithStatusJSON(http.StatusBadRequest, model.ErrorResponse{Message: "ID must be a positive number."})

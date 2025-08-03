@@ -33,6 +33,7 @@ func AutoMigrate(db *gorm.DB) {
 		&model.DayTemplate{},
 		&model.DayTemplateConsult{},
 		&model.Patient{},
+		&model.Consult{},
 	)
 
 	if err != nil {
