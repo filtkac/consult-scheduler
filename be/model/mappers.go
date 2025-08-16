@@ -4,7 +4,7 @@ import "time"
 
 func (ct *ConsultType) ToApiModel() *ConsultTypeDto {
 	return &ConsultTypeDto{
-		ct.ID,
+		&ct.ID,
 		ct.ConsultType,
 		ct.DurationMinutes,
 	}
@@ -19,7 +19,7 @@ func (ct *ConsultTypeDto) ToDbModel() *ConsultType {
 
 func (d *Department) ToApiModel() *DepartmentDto {
 	return &DepartmentDto{
-		d.ID,
+		&d.ID,
 		d.Name,
 	}
 }
@@ -30,7 +30,7 @@ func (d *DepartmentDto) ToDbModel() *Department {
 
 func (dt *DayTemplate) ToApiModel() *DayTemplateDto {
 	return &DayTemplateDto{
-		dt.ID,
+		&dt.ID,
 		dt.Name,
 		dt.DepartmentID,
 	}
@@ -38,7 +38,7 @@ func (dt *DayTemplate) ToApiModel() *DayTemplateDto {
 
 func (dtc *DayTemplateConsult) ToApiModel() *DayTemplateConsultDto {
 	return &DayTemplateConsultDto{
-		dtc.ID,
+		&dtc.ID,
 		dtc.ConsultTypeID,
 		dtc.DayTemplateID,
 		dtc.Time,
@@ -64,7 +64,7 @@ func (dtc *DayTemplateConsultDto) ToDbModel() *DayTemplateConsult {
 
 func (p *Patient) ToApiModel() *PatientDto {
 	return &PatientDto{
-		p.ID,
+		&p.ID,
 		p.UniqueID,
 		p.Name,
 		p.Email,
@@ -83,7 +83,7 @@ func (p *PatientDto) ToDbModel() *Patient {
 
 func (c *Consult) ToApiModel() *ConsultDto {
 	dto := &ConsultDto{
-		ID:           c.ID,
+		ID:           &c.ID,
 		DepartmentID: c.DepartmentID,
 		Time:         TimestampMinutes(c.Time),
 		Note:         c.Note,
@@ -103,7 +103,7 @@ func (c *Consult) ToApiModel() *ConsultDto {
 func (c *CreateConsultDto) ToDbModel() *Consult {
 	return &Consult{
 		DepartmentID:  c.DepartmentID,
-		ConsultTypeID: c.ConsultTypeId,
+		ConsultTypeID: c.ConsultTypeID,
 		Time:          time.Time(c.Time),
 		Note:          c.Note,
 		PatientID:     c.PatientID,

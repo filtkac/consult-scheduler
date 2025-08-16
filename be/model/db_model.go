@@ -19,9 +19,9 @@ type ConsultType struct {
 
 type DayTemplate struct {
 	Model
-	Name         string `gorm:"not null"`
-	DepartmentID uint   `gorm:"not null"`
-	Department   Department
+	Name         string     `gorm:"not null"`
+	DepartmentID uint       `gorm:"not null"`
+	Department   Department `gorm:"constraint:OnDelete:CASCADE"`
 }
 
 type DayTemplateConsult struct {
@@ -44,8 +44,8 @@ type Patient struct {
 
 type Consult struct {
 	Model
-	DepartmentID  uint `gorm:"not null"`
-	Department    Department
+	DepartmentID  uint       `gorm:"not null"`
+	Department    Department `gorm:"constraint:OnDelete:CASCADE"`
 	ConsultTypeID *uint
 	ConsultType   ConsultType
 	Time          time.Time `gorm:"type:timestamp;not null"`
