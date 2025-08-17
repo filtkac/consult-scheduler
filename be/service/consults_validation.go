@@ -1,8 +1,8 @@
 package service
 
 import (
-	"consult-scheduler/model"
 	"fmt"
+	"github.com/filtkac/consult-scheduler/model"
 	"sort"
 	"time"
 )

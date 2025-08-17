@@ -1,7 +1,7 @@
 package main
 
 import (
-	"consult-scheduler/config"
+	"github.com/filtkac/consult-scheduler/config"
 	"log"
 )
 

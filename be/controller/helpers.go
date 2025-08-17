@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"consult-scheduler/model"
+	"github.com/filtkac/consult-scheduler/model"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"

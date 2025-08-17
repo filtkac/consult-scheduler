@@ -1,4 +1,4 @@
-module consult-scheduler
+module github.com/filtkac/consult-scheduler
 
 go 1.24.4
 

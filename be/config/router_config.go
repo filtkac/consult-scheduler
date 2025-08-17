@@ -1,10 +1,10 @@
 package config
 
 import (
-	"consult-scheduler/controller"
-	"consult-scheduler/model"
-	"consult-scheduler/repository"
-	"consult-scheduler/service"
+	"github.com/filtkac/consult-scheduler/controller"
+	"github.com/filtkac/consult-scheduler/model"
+	"github.com/filtkac/consult-scheduler/repository"
+	"github.com/filtkac/consult-scheduler/service"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 	"net/http"

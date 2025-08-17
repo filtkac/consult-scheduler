@@ -2,9 +2,9 @@ package integrationtest
 
 import (
 	"bytes"
-	"consult-scheduler/config"
-	"consult-scheduler/model"
 	"encoding/json"
+	"github.com/filtkac/consult-scheduler/config"
+	"github.com/filtkac/consult-scheduler/model"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 	"net/http"

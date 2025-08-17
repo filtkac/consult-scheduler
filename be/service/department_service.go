@@ -1,9 +1,9 @@
 package service
 
 import (
-	"consult-scheduler/model"
-	"consult-scheduler/repository"
 	"context"
+	"github.com/filtkac/consult-scheduler/model"
+	"github.com/filtkac/consult-scheduler/repository"
 )
 
 type DepartmentService struct {

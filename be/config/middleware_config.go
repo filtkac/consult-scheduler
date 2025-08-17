@@ -1,9 +1,9 @@
 package config
 
 import (
-	"consult-scheduler/model"
 	"errors"
 	"fmt"
+	"github.com/filtkac/consult-scheduler/model"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 	"github.com/jackc/pgx/v5/pgconn"

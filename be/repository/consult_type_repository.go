@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"consult-scheduler/model"
 	"context"
+	"github.com/filtkac/consult-scheduler/model"
 	"gorm.io/gorm"
 )
 

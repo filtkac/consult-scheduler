@@ -73,3 +73,7 @@ psd
 thumb
 sketch
 
+.stylelintcache
+.eslintcache
+.swc
+

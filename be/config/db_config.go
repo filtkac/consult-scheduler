@@ -1,8 +1,8 @@
 package config
 
 import (
-	"consult-scheduler/model"
 	"fmt"
+	"github.com/filtkac/consult-scheduler/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"log"

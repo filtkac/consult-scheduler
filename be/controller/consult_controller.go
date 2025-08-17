@@ -1,9 +1,9 @@
 package controller
 
 import (
-	"consult-scheduler/model"
-	"consult-scheduler/service"
 	"fmt"
+	"github.com/filtkac/consult-scheduler/model"
+	"github.com/filtkac/consult-scheduler/service"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"time"

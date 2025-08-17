@@ -1,8 +1,8 @@
 package integrationtest
 
 import (
-	"consult-scheduler/config"
 	"context"
+	"github.com/filtkac/consult-scheduler/config"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"log"
