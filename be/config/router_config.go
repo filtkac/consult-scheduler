@@ -1,18 +1,21 @@
 package config
 
 import (
+	"net/http"
+
 	"github.com/filtkac/consult-scheduler/controller"
 	"github.com/filtkac/consult-scheduler/model"
 	"github.com/filtkac/consult-scheduler/repository"
 	"github.com/filtkac/consult-scheduler/service"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
-	"net/http"
 )
 
 func RouterConfig(db *gorm.DB) *gin.Engine {
 	router := gin.Default()
 	router.Use(ErrorHandler())
+	router.Use(cors.Default())
 
 	router.NoRoute(func(ctx *gin.Context) {
 		ctx.AbortWithStatusJSON(http.StatusNotFound, model.ErrorResponse{Message: "Path does not exist."})
@@ -29,6 +32,7 @@ func RouterConfig(db *gorm.DB) *gin.Engine {
 	departmentRouter.GET("", departmentController.GetAllDepartments)
 	departmentRouter.DELETE("/:departmentId", departmentController.DeleteDepartment)
 	departmentRouter.POST("", departmentController.CreateDepartment)
+	departmentRouter.PUT("/:departmentId", departmentController.UpdateDepartment)
 
 	dayTemplateController := initDayTemplateController(db)
 	dayTemplateRouter := router.Group("/day-templates")

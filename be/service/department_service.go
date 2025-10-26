@@ -2,6 +2,7 @@ package service
 
 import (
 	"context"
+
 	"github.com/filtkac/consult-scheduler/model"
 	"github.com/filtkac/consult-scheduler/repository"
 )
@@ -37,6 +38,24 @@ func (s DepartmentService) CreateDepartment(
 	department *model.DepartmentDto,
 ) (*model.DepartmentDto, error) {
 	saved, err := s.r.Save(ctx, department.ToDbModel())
+	if err != nil {
+		return nil, err
+	}
+	return saved.ToApiModel(), nil
+}
+
+func (s DepartmentService) UpdateDepartment(
+	ctx context.Context,
+	departmentID uint,
+	department *model.DepartmentDto,
+) (*model.DepartmentDto, error) {
+	if department.ID != nil && *department.ID != departmentID {
+		return nil, model.CustomValidationError{
+			FieldName: "id",
+			Reason:    "id must match the department ID in path",
+		}
+	}
+	saved, err := s.r.Update(ctx, departmentID, department.ToDbModel())
 	if err != nil {
 		return nil, err
 	}

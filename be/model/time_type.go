@@ -6,9 +6,10 @@ package model
 import (
 	"database/sql/driver"
 	"encoding/json"
+	"time"
+
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
-	"time"
 )
 
 type TimeOnly struct {

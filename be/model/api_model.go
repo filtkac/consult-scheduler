@@ -7,8 +7,9 @@ type ConsultTypeDto struct {
 }
 
 type DepartmentDto struct {
-	ID   *uint  `json:"id"`
-	Name string `json:"name" binding:"required"`
+	ID   *uint   `json:"id"`
+	Name string  `json:"name" binding:"required"`
+	Note *string `json:"note,omitempty"`
 }
 
 type DayTemplateDto struct {

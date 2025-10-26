@@ -7,7 +7,7 @@ export function Layout() {
   return (
     <AppShell
       padding="md"
-      navbar={{ width: 190, breakpoint: 'sm' }}
+      navbar={{ width: 220, breakpoint: 'xs' }}
       header={{ height: 60 }}
       layout="alt"
     >

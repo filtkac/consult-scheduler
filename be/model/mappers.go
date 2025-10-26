@@ -21,11 +21,12 @@ func (d *Department) ToApiModel() *DepartmentDto {
 	return &DepartmentDto{
 		&d.ID,
 		d.Name,
+		d.Note,
 	}
 }
 
 func (d *DepartmentDto) ToDbModel() *Department {
-	return &Department{Name: d.Name}
+	return &Department{Name: d.Name, Note: d.Note}
 }
 
 func (dt *DayTemplate) ToApiModel() *DayTemplateDto {

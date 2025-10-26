@@ -2,11 +2,12 @@ package config
 
 import (
 	"fmt"
+	"log"
+	"os"
+
 	"github.com/filtkac/consult-scheduler/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	"log"
-	"os"
 )
 
 func DatabaseConnection() *gorm.DB {

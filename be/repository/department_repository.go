@@ -2,6 +2,7 @@ package repository
 
 import (
 	"context"
+
 	"github.com/filtkac/consult-scheduler/model"
 	"gorm.io/gorm"
 )
@@ -15,7 +16,7 @@ func NewDepartmentRepository(db *gorm.DB) *DepartmentRepository {
 }
 
 func (r DepartmentRepository) FindAll(ctx context.Context) ([]*model.Department, error) {
-	return gorm.G[*model.Department](r.db).Find(ctx)
+	return gorm.G[*model.Department](r.db).Order("name asc").Find(ctx)
 }
 
 func (r DepartmentRepository) Delete(ctx context.Context, id uint) error {
@@ -28,5 +29,16 @@ func (r DepartmentRepository) Save(ctx context.Context, department *model.Depart
 	if err != nil {
 		return nil, err
 	}
+	return department, nil
+}
+
+func (r DepartmentRepository) Update(ctx context.Context, id uint, department *model.Department) (*model.Department, error) {
+	_, err := gorm.G[*model.Department](r.db).
+		Where("id = ?", id).
+		Updates(ctx, department)
+	if err != nil {
+		return nil, err
+	}
+	department.ID = id
 	return department, nil
 }

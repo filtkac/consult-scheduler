@@ -13,26 +13,79 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/layout/Navbar.tsx:22
+#: src/layout/Navbar.tsx:97
+msgid "Active department"
+msgstr "Aktivní oddělení"
+
+#: src/components/DepartmentCard/DepartmentCard.tsx:45
+msgid "Are you sure you want to delete the department \"{departmentName}\"?"
+msgstr "Jste si jisti, že chcete vymazat oddělení \"{departmentName}\"?"
+
+#: src/components/DepartmentCard/DepartmentCard.tsx:50
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: src/layout/Navbar.tsx:64
 msgid "Consult scheduling"
 msgstr "Plánování vyšetření"
 
-#: src/layout/Navbar.tsx:28
+#: src/layout/Navbar.tsx:70
 msgid "Consults"
 msgstr "Vyšetření"
 
-#: src/layout/Navbar.tsx:32
+#: src/pages/DepartmentsPage.tsx:31
+msgid "Create a new department"
+msgstr "Vytvořit nové oddělení"
+
+#: src/components/DepartmentModal/DepartmentModal.tsx:62
+#: src/pages/DepartmentsPage.tsx:26
+msgid "Create Department"
+msgstr "Vytvořit oddělení"
+
+#: src/components/DepartmentCard/DepartmentCard.tsx:49
+msgid "Delete"
+msgstr "Vymazat"
+
+#: src/components/DepartmentCard/DepartmentCard.tsx:41
+msgid "Delete Department"
+msgstr "Vymazat oddělení"
+
+#: src/layout/Navbar.tsx:82
 msgid "Departments"
 msgstr "Oddělení"
 
-#: src/layout/Header.tsx:32
+#: src/components/DepartmentCard/DepartmentCard.tsx:33
+msgid "Edit Department"
+msgstr "Upravit oddělení"
+
+#: src/layout/Header.tsx:40
 msgid "Look up patient"
 msgstr "Vyhledat pacienta"
 
-#: src/layout/Navbar.tsx:33
+#: src/components/DepartmentModal/DepartmentModal.tsx:47
+msgid "Name"
+msgstr "Jméno"
+
+#: src/components/DepartmentModal/DepartmentModal.tsx:53
+msgid "Note"
+msgstr "Poznámka"
+
+#: src/layout/Navbar.tsx:88
 msgid "Patients"
 msgstr "Pacienti"
 
-#: src/layout/Navbar.tsx:31
+#: src/layout/Navbar.tsx:98
+msgid "Pick one"
+msgstr "Vyberte jedno"
+
+#: src/components/DepartmentModal/DepartmentModal.tsx:62
+msgid "Save Changes"
+msgstr "Uložit změny"
+
+#: src/api/errorHandling.ts:11
+msgid "Server error. {responseBody}"
+msgstr "Serverová chyba. {responseBody}"
+
+#: src/layout/Navbar.tsx:76
 msgid "Templates"
 msgstr "Šablony"

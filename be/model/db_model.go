@@ -9,6 +9,7 @@ type Model struct {
 type Department struct {
 	Model
 	Name string `gorm:"unique;not null"`
+	Note *string
 }
 
 type ConsultType struct {

@@ -1,10 +1,11 @@
 package controller
 
 import (
+	"net/http"
+
 	"github.com/filtkac/consult-scheduler/model"
 	"github.com/filtkac/consult-scheduler/service"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 type DepartmentController struct {
@@ -49,4 +50,22 @@ func (c DepartmentController) CreateDepartment(ctx *gin.Context) {
 		return
 	}
 	ctx.JSON(http.StatusCreated, result)
+}
+
+func (c DepartmentController) UpdateDepartment(ctx *gin.Context) {
+	departmentID, err := GetIDPathParamOrAbort(ctx, "departmentId")
+	if err != nil {
+		return
+	}
+	var department model.DepartmentDto
+	if err := ctx.ShouldBind(&department); err != nil {
+		_ = ctx.Error(err)
+		return
+	}
+	result, err := c.s.UpdateDepartment(ctx, departmentID, &department)
+	if err != nil {
+		_ = ctx.Error(err)
+		return
+	}
+	ctx.JSON(http.StatusOK, result)
 }

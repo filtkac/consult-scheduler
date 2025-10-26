@@ -6,8 +6,8 @@ BEGIN
     END LOOP;
 END $$;
 
-INSERT INTO departments(name)
-VALUES ('Mammo center'),
+INSERT INTO departments(name, note)
+VALUES ('Mammo center', 'Only during weekdays'),
        ('CT surgery');
 
 INSERT INTO consult_types(consult_type, duration_minutes)

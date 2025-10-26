@@ -2,9 +2,10 @@ package service
 
 import (
 	"context"
+	"time"
+
 	"github.com/filtkac/consult-scheduler/model"
 	"github.com/filtkac/consult-scheduler/repository"
-	"time"
 )
 
 type ConsultService struct {
@@ -62,7 +63,7 @@ func (s ConsultService) CreateDepartmentConsult(
 func (s ConsultService) UpdateDepartmentConsult(
 	ctx context.Context,
 	departmentID uint,
-	consultId uint,
+	consultID uint,
 	consult *model.CreateConsultDto,
 ) (*model.ConsultDto, error) {
 	if consult.DepartmentID != departmentID {
@@ -71,7 +72,7 @@ func (s ConsultService) UpdateDepartmentConsult(
 			Reason:    "departmentId must match the department ID in path",
 		}
 	}
-	saved, err := s.r.Update(ctx, consultId, consult.ToDbModel())
+	saved, err := s.r.Update(ctx, consultID, consult.ToDbModel())
 	if err != nil {
 		return nil, err
 	}
